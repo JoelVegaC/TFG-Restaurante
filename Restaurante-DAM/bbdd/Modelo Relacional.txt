@@ -1,0 +1,100 @@
+CLIENTE(
+    id_cliente PK,
+    nombre,
+    prApellido,
+    sgApellido,
+    dni,
+    telefono,
+    email
+)
+
+MESA(
+    id_mesa PK,
+    numero,
+    capacidad,
+    estado
+)
+
+RESERVA(
+    id_reserva PK,
+    id_cliente FK → CLIENTE(id_cliente),
+    id_mesa FK → MESA(id_mesa),
+    fecha,
+    num_personas,
+    estado
+)
+
+ROL(
+    id_rol PK,
+    nombre,
+    descripcion
+)
+
+EMPLEADO(
+    id_empleado PK,
+    rol_id FK → ROL(id_rol),
+    nombre,
+    prApellido,
+    sgApellido,
+    dni,
+    telefono
+)
+
+PEDIDO(
+    id_pedido PK,
+    id_cliente FK → CLIENTE(id_cliente),
+    id_empleado FK → EMPLEADO(id_empleado),
+    id_mesa FK → MESA(id_mesa),
+    fecha_hora,
+    tipo,
+    estado,
+    total
+)
+
+FACTURA(
+    id_factura PK,
+    id_pedido FK UNIQUE → PEDIDO(id_pedido),
+    fecha,
+    total,
+    metodo_pago
+)
+
+CATEGORIA_PLATO(
+    id_categoria PK,
+    nombre,
+    descripcion
+)
+
+PLATO(
+    id_plato PK,
+    id_categoria FK → CATEGORIA_PLATO(id_categoria),
+    nombre,
+    descripcion,
+    precio,
+    activo
+)
+
+DETALLE_PEDIDO(
+    id_detalle PK,
+    id_pedido FK → PEDIDO(id_pedido),
+    id_plato FK → PLATO(id_plato),
+    cantidad,
+    precio_unitario,
+    subtotal
+)
+
+DETALLE_FACTURA(
+    id_detalle_factura PK,
+    id_factura FK → FACTURA(id_factura),
+    id_plato FK → PLATO(id_plato),
+    cantidad,
+    precio_unitario,
+    subtotal
+)
+
+INVENTARIO(
+    id_inventario PK,
+    id_plato FK UNIQUE → PLATO(id_plato),
+    stock_actual,
+    stock_minimo
+)
