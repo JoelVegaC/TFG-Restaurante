@@ -32,7 +32,7 @@ ROL(
 
 EMPLEADO(
     id_empleado PK,
-    rol_id FK → ROL(id_rol),
+    id_rol FK → ROL(id_rol),
     nombre,
     prApellido,
     sgApellido,
