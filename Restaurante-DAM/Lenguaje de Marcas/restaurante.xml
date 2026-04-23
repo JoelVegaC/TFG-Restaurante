@@ -2,7 +2,7 @@
 <restaurante xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:noNamespaceSchemaLocation="restaurante.xsd">
 
-    <nombre>Jujutsu Dining</nombre>
+    <nombre>Vacio Espiritual </nombre>
     <direccion>Shibuya Street 35, Tokyo</direccion>
 
     <carta>

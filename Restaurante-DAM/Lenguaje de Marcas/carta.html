@@ -2,13 +2,13 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Carta | Jujutsu Dining</title>
+    <title>Carta | Vacio Espiritual </title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="pagina">
 
 <header class="encabezado">
-    <span class="logo-texto">Jujutsu Dining</span>
+    <span class="logo-texto">Vacio Espiritual </span>
     <nav class="navegacion">
         <a href="index.html" class="enlace-pagina">Inicio</a>
         <a href="carta.html" class="enlace-pagina">Carta</a>
@@ -185,7 +185,7 @@
 </section>
 
 <footer class="pie">
-    <p>© 2026 Jujutsu Dining</p>
+    <p>© 2026 Vacio Espiritual </p>
 </footer>
 
 <!-- MODAL PARA PLATOS/BEBIDAS -->
@@ -212,11 +212,11 @@ async function validarXML() {
     });
 
     if (result.errors === null) {
-        console.log("XML válido ✔");
-        alert("XML válido ✔");
+        console.log("El archivo XML funciona");
+        alert("XML válido");
     } else {
         console.error(result.errors);
-        alert("XML inválido ❌\n\n" + result.errors.join("\n"));
+        alert("XML inválido" + result.errors.join("\n"));
     }
 }
 
