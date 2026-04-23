@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio | Jujutsu Dining</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="pagina">
+
+<header class="encabezado">
+    <span class="logo-texto">Jujutsu Dining</span>
+    <nav class="navegacion">
+        <a href="index.html" class="enlace-pagina">Inicio</a>
+        <a href="carta.html" class="enlace-pagina">Carta</a>
+        <a href="explicacion.html" class="enlace-pagina">Explicación</a>
+        <a href="#reservas" class="enlace-ancla">Reservas</a>
+    </nav>
+</header>
+
+<main>
+
+    <!-- PORTADA -->
+    <section id="inicio" class="seccion portada scroll-animado">
+        <div class="portada-contenido contenedor-portada">
+            <h1 class="titulo-restaurante">Jujutsu Dining</h1>
+
+            <div class="intro-restaurante">
+                <h2>Bienvenido al Restaurante Jujutsu Kaisen</h2>
+                <p>
+                    Un espacio donde la energía maldita se transforma en sabores únicos.  
+                    Disfruta de platos inspirados en hechiceros, maldiciones y batallas épicas.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESERVAS -->
+    <section id="reservas" class="seccion reservas scroll-animado">
+        <h2>Reservas</h2>
+        <p>Completa el formulario para asegurar tu mesa en el mundo de los hechiceros.</p>
+
+        <form id="formulario-reserva" class="formulario-reserva">
+            <div class="campo-formulario">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+
+            <div class="campo-formulario">
+                <label for="personas">Número de personas</label>
+                <input type="number" id="personas" name="personas" min="1" max="10" required>
+            </div>
+
+            <div class="campo-formulario">
+                <label for="fecha">Fecha</label>
+                <input type="date" id="fecha" name="fecha" required>
+            </div>
+
+            <div class="campo-formulario">
+                <label for="mesa-tematica">Mesa temática</label>
+                <select id="mesa-tematica" name="mesa-tematica">
+                    <option value="Gojo Satoru">Gojo Satoru</option>
+                    <option value="Itadori Yuji">Itadori Yuji</option>
+                    <option value="Fushiguro Megumi">Fushiguro Megumi</option>
+                    <option value="Kugisaki Nobara">Kugisaki Nobara</option>
+                </select>
+            </div>
+
+            <button type="submit" class="boton-principal">Enviar reserva</button>
+        </form>
+
+        <p id="mensaje-reserva" class="mensaje-reserva"></p>
+    </section>
+
+</main>
+
+<footer class="pie">
+    <p>© 2026 Jujutsu Dining · Fan project no oficial</p>
+</footer>
+
+<!-- MODAL GLOBAL (para reservas si lo quieres usar después) -->
+<div id="modal-reserva" class="modal oculto">
+    <div class="modal-contenido">
+        <h3>Reserva recibida</h3>
+        <p id="texto-modal"></p>
+        <button id="boton-cerrar-modal" class="boton-secundario">Cerrar</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

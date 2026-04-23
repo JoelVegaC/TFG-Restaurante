@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Carta | Jujutsu Dining</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="pagina">
+
+<header class="encabezado">
+    <span class="logo-texto">Jujutsu Dining</span>
+    <nav class="navegacion">
+        <a href="index.html" class="enlace-pagina">Inicio</a>
+        <a href="carta.html" class="enlace-pagina">Carta</a>
+        <a href="explicacion.html" class="enlace-pagina">Explicación</a>
+        <a href="index.html#reservas" class="enlace-pagina">Reservas</a>
+    </nav>
+</header>
+
+<section class="seccion carta scroll-animado">
+
+    <!-- BUSCADOR -->
+    <div class="buscador-contenedor">
+        <input type="text" id="buscador-platos" placeholder="Buscar plato o bebida..." />
+    </div>
+
+    <!-- ENTRANTES -->
+    <h2 class="categoria-titulo">Entrantes</h2>
+    <div class="categoria-grid">
+
+        <div class="plato-card" data-tipo="entrante">
+            <img src="Imagenes/croquetas_infinitas.png" alt="Croquetas Infinitas">
+            <div class="info">
+                <h3>Croquetas Infinitas</h3>
+                <p>Croquetas caseras de jamón ibérico, crujientes por fuera y cremosas por dentro (6 uds).</p>
+            </div>
+        </div>
+
+        <div class="plato-card" data-tipo="entrante">
+            <img src="Imagenes/patatas_mechada.png" alt="Patatas con carne mechada de Shibuya">
+            <div class="info">
+                <h3>Patata Mechada</h3>
+                <p>Patatas fritas con carne mechada y salsa alioli-brava.</p>
+            </div>
+        </div>
+
+        <div class="plato-card" data-tipo="entrante">
+            <img src="Imagenes/quesitos.png" alt="Tabla de quesitos">
+            <div class="info">
+                <h3>Tabla de quesitos</h3>
+                <p>Selección de embutidos y quesos curados artesanales.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- PRIMEROS -->
+    <h2 class="categoria-titulo">Primeros</h2>
+    <div class="categoria-grid">
+
+        <div class="plato-card" data-tipo="primero">
+            <img src="Imagenes/maki_salsa_yuta.png" alt="Makis con salsa de Yuta">
+            <div class="info">
+                <h3>Makis con salsa de Yuta</h3>
+                <p>Rollitos de arroz con atún, verduras frescas y salsa especial de la casa.</p>
+            </div>
+        </div>
+
+        <div class="plato-card" data-tipo="primero">
+            <img src="Imagenes/salmon_inumaki.png" alt="Inumaki Salmon Deluxe">
+            <div class="info">
+                <h3>Inumaki Salmon Deluxe</h3>
+                <p>Tartar de salmón marinado con cítricos y soja suave.</p>
+            </div>
+        </div>
+
+        <div class="plato-card" data-tipo="primero">
+            <img src="Imagenes/clavos_nobara.png" alt="Nobara con clavos crujientes">
+            <div class="info">
+                <h3>Nobara con clavos crujientes</h3>
+                <p>Arroz salteado con setas de temporada y toque de ajo crujiente.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SEGUNDOS -->
+    <h2 class="categoria-titulo">Segundos</h2>
+    <div class="categoria-grid">
+
+        <div class="plato-card" data-tipo="segundo">
+            <img src="Imagenes/sandwich_gojo.png" alt="Medio sandwich de Gojo">
+            <div class="info">
+                <h3>Katsu de Itadori</h3>
+                <p>Sándwich de pollo crujiente con queso fundido y salsa especiada.</p>
+            </div>
+        </div>
+
+        <div class="plato-card" data-tipo="segundo">
+            <img src="Imagenes/dedo_sukuna.png" alt="Sukuna Finger Food">
+            <div class="info">
+                <h3>Sukuna Finger Food</h3>
+                <p>Filete de merluza al horno con guarnición de verduras asadas.</p>
+            </div>
+        </div>
+
+        <div class="plato-card" data-tipo="segundo">
+            <img src="Imagenes/hamburgeto.png" alt="Hamburguesa de Geto">
+            <div class="info">
+                <h3>Hamburguesa Geto</h3>
+                <p>Hamburguesa de ternera con queso cheddar y patatas fritas.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- POSTRES -->
+    <h2 class="categoria-titulo">Postres</h2>
+    <div class="categoria-grid">
+
+        <div class="plato-card" data-tipo="postre">
+            <img src="Imagenes/prison_confinadora.png" alt="Prisión Confinadora Brownie">
+            <div class="info">
+                <h3>Prisión Confinadora Brownie</h3>
+                <p>Brownie de chocolate negro con corazón fundido.</p>
+            </div>
+        </div>
+
+        <div class="plato-card" data-tipo="postre">
+            <img src="Imagenes/kitkat_gojo.png" alt="KitKat de Gojo">
+            <div class="info">
+                <h3>KitKat de Gojo</h3>
+                <p>Brownie casero con helado de vainilla y sirope de chocolate.</p>
+            </div>
+        </div>
+
+        <div class="plato-card" data-tipo="postre">
+            <img src="Imagenes/brazo35.png" alt="Brazo de 35">
+            <div class="info">
+                <h3>Brazo de 35</h3>
+                <p>Flan casero tradicional con caramelo.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- BEBIDAS -->
+    <h2 class="categoria-titulo">Bebidas</h2>
+    <div class="bebidas-grid">
+
+        <div class="bebida-card" data-tipo="bebida">
+            <img src="Imagenes/te_zenin.png" alt="Té Zen'in">
+            <div class="bebida-info">
+                <h3>Té Zen'in</h3>
+                <p>Té frío artesanal con limón.</p>
+            </div>
+        </div>
+
+        <div class="bebida-card" data-tipo="bebida">
+            <img src="Imagenes/batipanda.png" alt="Batido Panda Mode">
+            <div class="bebida-info">
+                <h3>Batido Panda Mode</h3>
+                <p>Batido cremoso de chocolate o vainilla.</p>
+            </div>
+        </div>
+
+        <div class="bebida-card" data-tipo="bebida">
+            <img src="Imagenes/sukunasour.png" alt="Sukuna Sour">
+            <div class="bebida-info">
+                <h3>Sukuna Sour</h3>
+                <p>Vino tinto, blanco o rosado servido en copa.</p>
+            </div>
+        </div>
+
+        <div class="bebida-card" data-tipo="bebida">
+            <img src="Imagenes/Black_flash_shot.png" alt="Black Flash Shot">
+            <div class="bebida-info">
+                <h3>Black Flash Shot</h3>
+                <p>Caña de cerveza o botellín frío.</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<footer class="pie">
+    <p>© 2026 Jujutsu Dining</p>
+</footer>
+
+<!-- MODAL PARA PLATOS/BEBIDAS -->
+<div id="modal-plato" class="modal oculto">
+    <div class="modal-contenido modal-plato-contenido">
+        <button id="cerrar-modal-plato" class="modal-cerrar">✕</button>
+        <img id="modal-plato-imagen" src="" alt="">
+        <h3 id="modal-plato-titulo"></h3>
+        <p id="modal-plato-descripcion"></p>
+    </div>
+</div>
+
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xmllint-wasm/xmllint.js"></script>
+
+<script>
+async function validarXML() {
+    const xml = await fetch("restaurant.xml").then(r => r.text());
+    const xsd = await fetch("restaurant.xsd").then(r => r.text());
+
+    const result = xmllint.validateXML({
+        xml: xml,
+        schema: xsd
+    });
+
+    if (result.errors === null) {
+        console.log("XML válido ✔");
+        alert("XML válido ✔");
+    } else {
+        console.error(result.errors);
+        alert("XML inválido ❌\n\n" + result.errors.join("\n"));
+    }
+}
+
+validarXML();
+</script>
+
+</body>
+</html>

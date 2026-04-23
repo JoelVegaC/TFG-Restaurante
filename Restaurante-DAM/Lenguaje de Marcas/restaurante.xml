@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<restaurante xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="restaurante.xsd">
+
+    <nombre>Jujutsu Dining</nombre>
+    <direccion>Shibuya Street 35, Tokyo</direccion>
+
+    <carta>
+
+        <categoria tipo="Entrantes">
+            <plato>
+                <nombre>Croquetas Infinitas</nombre>
+                <descripcion>Crujientes y cremosas</descripcion>
+                <precio>6.50</precio>
+            </plato>
+
+            <plato>
+                <nombre>Patata Mechada</nombre>
+                <descripcion>Patatas con carne mechada</descripcion>
+                <precio>7.00</precio>
+            </plato>
+        </categoria>
+
+        <categoria tipo="Primeros">
+            <plato>
+                <nombre>Makis con salsa de Yuta</nombre>
+                <descripcion>Makis con salsa especial</descripcion>
+                <precio>12.00</precio>
+            </plato>
+        </categoria>
+
+        <categoria tipo="Bebidas">
+            <plato>
+                <nombre>Té Zen'in</nombre>
+                <descripcion>Té frío artesanal</descripcion>
+                <precio>3.50</precio>
+            </plato>
+        </categoria>
+
+    </carta>
+
+</restaurante>
