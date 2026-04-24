@@ -131,49 +131,26 @@ INSERT INTO Pedido (id_cliente, id_empleado, id_mesa, fecha_hora, tipo, estado, 
 -- ------------------------------------------------------------
 -- Detalle de pedidos
 -- ------------------------------------------------------------
--- Pedido 1: entrecot + patatas + agua + flan
-INSERT INTO DetallePedido (id_pedido, id_plato, cantidad, precio_unitario, subtotal) VALUES
-    (1, 7,  1, 22.00, 22.00),   -- Entrecot
-    (1, 2,  1,  6.00,  6.00),   -- Patatas bravas
-    (1, 13, 1,  2.00,  2.00),   -- Agua
-    (1, 16, 2,  2.00,  4.00),   -- Cerveza x2
-    (1, 12, 2,  4.00,  8.00),   -- Flan x2
-    (1, 15, 2,  2.50,  5.00);   -- Vino x2  → total: 47.00 (aprox 52.50 con IVA)
 
--- Pedido 2: ensalada + pollo + refresco
 INSERT INTO DetallePedido (id_pedido, id_plato, cantidad, precio_unitario, subtotal) VALUES
-    (2, 4,  1,  7.50,  7.50),   -- Ensalada
-    (2, 9,  1, 13.00, 13.00),   -- Pollo asado
-    (2, 14, 2,  2.50,  5.00);   -- Refresco x2
+    (1, 7,  1, 22.00, 22.00),   
+    (1, 2,  1,  6.00,  6.00),   
+    (1, 13, 1,  2.00,  2.00),  
+    (1, 16, 2,  2.00,  4.00),   
+    (1, 12, 2,  4.00,  8.00),
+    (1, 15, 2,  2.50,  5.00); 
 
--- Pedido 3: gazpacho + merluza + agua
-INSERT INTO DetallePedido (id_pedido, id_plato, cantidad, precio_unitario, subtotal) VALUES
-    (3, 5,  1,  5.50,  5.50),   -- Gazpacho
-    (3, 8,  1, 18.50, 18.50),   -- Merluza
-    (3, 13, 1,  2.00,  2.00);   -- Agua
 
--- Pedido 4 (para llevar): croquetas + tabla ibéricos + tarta
-INSERT INTO DetallePedido (id_pedido, id_plato, cantidad, precio_unitario, subtotal) VALUES
-    (4, 1,  2,  8.50, 17.00),   -- Croquetas x2
-    (4, 3,  1, 14.00, 14.00),   -- Tabla ibéricos
-    (4, 10, 1,  5.50,  5.50);   -- Tarta de queso
-
--- Pedido 5: arroz + entrecot + vino + brownie
-INSERT INTO DetallePedido (id_pedido, id_plato, cantidad, precio_unitario, subtotal) VALUES
-    (5, 6,  1, 12.00, 12.00),   -- Arroz meloso
-    (5, 7,  1, 22.00, 22.00),   -- Entrecot
-    (5, 15, 2,  2.50,  5.00),   -- Vino x2
-    (5, 11, 1,  6.00,  6.00);   -- Brownie  → 45.00 ≈ 40.00 (redondeado)
 
 -- ------------------------------------------------------------
--- Facturas (para pedidos entregados)
+-- Factura
 -- ------------------------------------------------------------
 INSERT INTO Factura (id_pedido, fecha, total, metodo_pago) VALUES
     (1, '2025-04-20 15:00:00', 52.50, 'tarjeta'),
-    (4, '2025-04-20 13:45:00', 35.00, 'efectivo');
+
 
 -- ------------------------------------------------------------
--- Detalle de facturas (histórico)
+-- Detalle de factura
 -- ------------------------------------------------------------
 -- Factura 1 → copia de Pedido 1
 INSERT INTO DetalleFactura (id_factura, id_plato, cantidad, precio_unitario, subtotal) VALUES
@@ -184,12 +161,5 @@ INSERT INTO DetalleFactura (id_factura, id_plato, cantidad, precio_unitario, sub
     (1, 12, 2,  4.00,  8.00),
     (1, 15, 2,  2.50,  5.00);
 
--- Factura 2 → copia de Pedido 4
-INSERT INTO DetalleFactura (id_factura, id_plato, cantidad, precio_unitario, subtotal) VALUES
-    (2, 1,  2,  8.50, 17.00),
-    (2, 3,  1, 14.00, 14.00),
-    (2, 10, 1,  5.50,  5.50);
 
--- ============================================================
--- FIN DEL SCRIPT 02
--- ============================================================
+

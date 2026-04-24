@@ -37,7 +37,7 @@ ORDER BY p.fecha_hora;
 
 
 -- ------------------------------------------------------------
--- 1.4 Ver el detalle completo de un pedido (ej: pedido 1)
+-- 1.4 Ver el detalle completo de un pedido
 -- ------------------------------------------------------------
 SELECT pl.nombre AS plato, dp.cantidad, dp.subtotal
 FROM DetallePedido dp
@@ -189,14 +189,14 @@ WHERE id_pedido = 2;
 -- ------------------------------------------------------------
 UPDATE Plato
 SET activo = 0
-WHERE id_plato = 12; -- Flan de huevo
+WHERE id_plato = 12; 
 
 -- ------------------------------------------------------------
 -- 3.5 Actualizar el stock después de servir un pedido
 -- ------------------------------------------------------------
 UPDATE Inventario
 SET stock_actual = stock_actual - 1
-WHERE id_plato = 7; -- Entrecot
+WHERE id_plato = 7; 
 
 -- ------------------------------------------------------------
 -- 3.6 Añadir un nuevo plato al menú
