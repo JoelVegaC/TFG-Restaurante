@@ -40,23 +40,49 @@ public class InventarioDao {
         return inventario;
     }
     public boolean reponerStock(Connection conexion, int idPlato, int cantidadASumar) {
-        // Usamos el ID del plato para localizar la fila exacta y sumar stock al actual
-        String sql = "UPDATE Inventario SET stock_actual = stock_actual + ? WHERE id_plato = ?";
+        // Si cantidadASumar es negativa, comprobamos si hay stock suficiente para realizar el pedido
+        if (cantidadASumar < 0) {
+            int cantidadPedida = Math.abs(cantidadASumar); // Convertimos el -5 en su valor absoluto para comparar
+            
+            String sqlCheck = "SELECT stock_actual FROM Inventario WHERE id_plato = ?";
+            try (PreparedStatement pstmtCheck = conexion.prepareStatement(sqlCheck)) {
+                pstmtCheck.setInt(1, idPlato);
+                ResultSet rs = pstmtCheck.executeQuery();
+                
+                if (rs.next()) {
+                    int stockActual = rs.getInt("stock_actual");
+                    // Si el stock actual es menor al pedido pintamos error
+                    if (stockActual < cantidadPedida) {
+                        System.out.println("Error: No hay suficiente stock. (Disponible: " + stockActual + ")");
+                        return false; 
+                    }
+                }
+            } catch (SQLException e) {
+                System.err.println("Error al consultar stock: " + e.getMessage());
+                return false;
+            }
+        }
 
-        try (PreparedStatement pstmt = conexion.prepareStatement(sql)) {
+        // Cambiamos el stock del plato seleccionado
+        String sqlUpdate = "UPDATE Inventario SET stock_actual = stock_actual + ? WHERE id_plato = ?";
+
+        try (PreparedStatement pstmt = conexion.prepareStatement(sqlUpdate)) {
             pstmt.setInt(1, cantidadASumar);
             pstmt.setInt(2, idPlato);
 
             int filasAfectadas = pstmt.executeUpdate();
             
-            // Si la variable es mayor a 0, significa que el ID existia y se actualizo
-            if(filasAfectadas > 0){
-                System.out.println("Reestock realizado correctamente");
+            if (filasAfectadas > 0) {
+                // Solo imprimimos mensaje de éxito si estamos reponiendo 
+                if (cantidadASumar > 0) System.out.println("Restock realizado correctamente.");
                 return true;
-            }else{return false;}
+            } else {
+                System.out.println("Error: El ID del plato no existe.");
+                return false;
+            }
 
         } catch (SQLException e) {
-            System.err.println("Error al actualizar el inventario: " + e.getMessage());
+            System.err.println("Error técnico al actualizar el inventario: " + e.getMessage());
             return false;
         }
     }

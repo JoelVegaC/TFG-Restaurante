@@ -3,6 +3,7 @@ package VO;
 public class EmpleadoVo {
     // --- Atributos
     private String rol, nombre, prApellido, sgApellido, dni, telefono;
+    private int id;
 
     // --- Constructores del objeo Empleado
 
@@ -15,12 +16,22 @@ public class EmpleadoVo {
         this.sgApellido = sgApellido;
         this.telefono = telefono;
     }
-    // Constructor sobrecargado para obtener unicamente el dni
-    public EmpleadoVo(String dni){
-         this.dni = dni;
+
+    public EmpleadoVo(int id, String dni, String nombre, String prApellido, int rol, String sgApellido, String telefono) {
+        String puesto = (rol == 1) ? "Administrados" : (rol == 2)? "Camarero": "Cocinero";
+        this.rol = puesto;
+        this.nombre = nombre;
+        this.prApellido = prApellido;
+        this.sgApellido = sgApellido;
+        this.dni = dni;
+        this.telefono = telefono;
+        this.id = id;
     }
 
     // --- Getters y Setters del objeto Empleado
+    public int getIdEmpleado(){
+        return id;
+    }
     public String getRol() {
         return rol;
     }

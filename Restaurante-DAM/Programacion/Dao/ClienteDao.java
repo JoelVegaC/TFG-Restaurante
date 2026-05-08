@@ -13,7 +13,7 @@ public class ClienteDao {
 
     public List<ClienteVo> obtenerClientes(Connection conexion) throws SQLException{
        // Definimos la consulta sobre la tabla Cliente
-        String consulta = "SELECT nombre, prApellido, sgApellido, dni, telefono, email FROM Cliente";
+        String consulta = "SELECT  id_cliente, nombre, prApellido, sgApellido, dni, telefono, email FROM Cliente";
 
         // Creamos la lista donde almacenaremos los resultados del select
         List<ClienteVo> clientes = new ArrayList<>();
@@ -21,6 +21,7 @@ public class ClienteDao {
         try(Statement stmt = conexion.createStatement();
             ResultSet resultado = stmt.executeQuery(consulta)){
                 while(resultado.next()){
+                    int id = resultado.getInt("id_cliente");
                     String nombre = resultado.getString("nombre");
                     String apellido1 = resultado.getString("prApellido");
                     String apellido2 = resultado.getString("sgApellido");
@@ -28,7 +29,7 @@ public class ClienteDao {
                     String tlf = resultado.getString("telefono");
                     String email = resultado.getString("email");
 
-                    ClienteVo cliente = new ClienteVo(dni, email, nombre, apellido1, apellido2, tlf);
+                    ClienteVo cliente = new ClienteVo(id, dni, email, nombre, apellido1, apellido2, tlf);
                     clientes.add(cliente);
 
                 }
@@ -86,6 +87,7 @@ public class ClienteDao {
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
                     return new ClienteVo(
+                        rs.getInt("id_cliente"),
                         rs.getString("dni"),         
                         rs.getString("email"),       
                         rs.getString("nombre"),      

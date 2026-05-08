@@ -2,12 +2,13 @@ package VO;
 
 public class PlatosVo {
     // --- Atributos
-    private int id_categoria;
+    private int id_plato,id_categoria;
     private double precio;
     private String nombre, descripcion;
 
     // --- Constructor 
-    public PlatosVo(String descripcion, int id_categoria, String nombre, double precio) {
+    public PlatosVo(int plato, String descripcion, int id_categoria, String nombre, double precio) {
+        this.id_plato = plato;
         this.descripcion = descripcion;
         this.id_categoria = id_categoria;
         this.nombre = nombre;
@@ -20,6 +21,9 @@ public class PlatosVo {
     }
     public void setId_categoria(int id_categoria) {
         this.id_categoria = id_categoria;
+    }
+    public int getidPlato(){
+        return id_plato;
     }
     public String getNombre() {
         return nombre;

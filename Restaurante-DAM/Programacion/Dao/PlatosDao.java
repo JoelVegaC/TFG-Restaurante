@@ -14,19 +14,20 @@ public class PlatosDao {
         //Creamos la lista donde guardaremos los datos
         List<PlatosVo> platos = new ArrayList<>();
         // Definimos la consulta
-        String consulta = "SELECT id_categoria, nombre, descripcion, precio, activo FROM Plato";
+        String consulta = "SELECT id_plato, id_categoria, nombre, descripcion, precio, activo FROM Plato";
 
         try(Statement stmt = conexion.createStatement();
             ResultSet resultado = stmt.executeQuery(consulta) ){
                 while(resultado.next()){
                     //Recogemos los datos
+                    int id = resultado.getInt("id_plato");
                     int cat = resultado.getInt("id_categoria");
                     String nombre = resultado.getString("nombre");
                     String desc = resultado.getString("descripcion");
                     double precio = resultado.getDouble("precio");
                     int activo = resultado.getInt("activo");
                     
-                    PlatosVo plato = new PlatosVo(desc, cat, nombre, precio);
+                    PlatosVo plato = new PlatosVo(id,desc, cat, nombre, precio);
                     platos.add(plato);
                 }
             }catch(SQLException e) {
@@ -49,6 +50,7 @@ public class PlatosDao {
             try (ResultSet rs = pstmt.executeQuery()) {
                 while (rs.next()) {
                     PlatosVo plato = new PlatosVo(
+                        rs.getInt("id_plato"),
                         rs.getString("descripcion"),
                         rs.getInt("id_categoria"),
                         rs.getString("nombre"),
@@ -62,6 +64,22 @@ public class PlatosDao {
         }
         
         return platos;
+    }
+
+    // Metodo para obtener el precio de cada plato en base a la id del plato
+    public double obtenerPrecioPlato(Connection conex, int idPlato) {
+        String sql = "SELECT precio FROM Plato WHERE id_plato = ?";
+        try (PreparedStatement pstmt = conex.prepareStatement(sql)) {
+            pstmt.setInt(1, idPlato);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getDouble("precio");
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al obtener precio: " + e.getMessage());
+        }
+        return 0.0; 
     }
 
 

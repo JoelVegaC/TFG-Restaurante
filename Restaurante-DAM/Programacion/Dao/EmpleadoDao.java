@@ -107,13 +107,13 @@ public class EmpleadoDao {
             if (rs.next()) {
                 // Creamos y devolvemos el objeto con los datos del camarero aleatorio
                 return new EmpleadoVo(
+                    rs.getInt("id_empleado"),
                     rs.getString("dni"),
                     rs.getString("nombre"),
                     rs.getString("prApellido"),
                     rs.getInt("rol_id"),
                     rs.getString("sgApellido"),
-                    rs.getString("telefono")
-                );
+                    rs.getString("telefono"));
             }
         }
         return null; 

@@ -2,6 +2,7 @@ package VO;
 
 public class ClienteVo {
     // --- Atributos de Cliente
+    private int idCliente;
     private String nombre;
     private String prApellido;
     private String sgApellido;
@@ -11,6 +12,16 @@ public class ClienteVo {
 
     // --- Constructor del objeto Cliente
 
+    public ClienteVo(int idCliente, String dni, String email, String nombre, String prApellido, String sgApellido, String telefono) {
+        this.idCliente = idCliente;
+        this.dni = dni;
+        this.email = email;
+        this.nombre = nombre;
+        this.prApellido = prApellido;
+        this.sgApellido = sgApellido;
+        this.telefono = telefono;
+    }
+
     public ClienteVo(String dni, String email, String nombre, String prApellido, String sgApellido, String telefono) {
         this.dni = dni;
         this.email = email;
@@ -19,6 +30,7 @@ public class ClienteVo {
         this.sgApellido = sgApellido;
         this.telefono = telefono;
     }
+
 
     // --- Getters del objeto Cliente
     public String getNombre() {
@@ -37,7 +49,9 @@ public class ClienteVo {
     public String getSgApellido() {
         return sgApellido;
     }
-
+    public int getIdCliente(){
+        return idCliente;
+    }
     // --- Setters del objeto Cliente
     public void setSgApellido(String sgApellido) {
         this.sgApellido = sgApellido;
