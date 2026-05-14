@@ -416,6 +416,46 @@ public class AppRestaurante {
             default -> false;
         };
     }
+    // Método para gestionar el proceso de pago
+    public static void gestionarPago(double total) {
+        System.out.println("\n========== PROCESO DE PAGO ==========");
+        String metodo = leerSiNo("¿Desea pagar con tarjeta?"); // Si dice no, asumimos efectivo
+
+        if (metodo.equalsIgnoreCase("si")) {
+            System.out.println("Procesando... Conectando con el datáfono...");
+            System.out.println("¡Perfecto! Pago con tarjeta confirmado.");
+        } else {
+            System.out.println("Pago en efectivo seleccionado.");
+            double entregado = 0;
+            
+            while (entregado < total) {
+                System.out.printf("Total a pagar: %.2f Eur. Introduzca el importe: ", total);
+                double pagoActual = leerDoubleSeguro();
+                entregado += pagoActual;
+
+                if (entregado < total) {
+                    System.out.printf("Cantidad insuficiente. Faltan %.2f Eur.\n", (total - entregado));
+                }
+            }
+
+            if (entregado > total) {
+                System.out.printf("Pago realizado con éxito. Su cambio es: %.2f Eur.\n", (entregado - total));
+            } else {
+                System.out.println("Pago realizado con éxito. Importe exacto.");
+            }
+        }
+    }
+
+    // Metodo para leer los euros (decimales)
+    private static double leerDoubleSeguro() {
+        while (true) {
+            try {
+                return Double.parseDouble(sc.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.print("Error: ¡Debes introducir una cantidad válida! (Ej: 10.50): ");
+            }
+        }
+    }
 
     // - ========== METODO MAIN (PRINCIPAL) DE LA APP ==========
     public static void main(String[] args) {
@@ -688,7 +728,18 @@ public class AppRestaurante {
                                         // Llamamos la funcion que pinta toda la factura del pedido en cuestion
                                         factura(conex);
                                         System.out.println("- Total a pagar =>" + cuenta + " eur");// Pintamos el total a pagar
+
+                                        // LLamamos al metodo para que el usuario page la cuenta
+                                        gestionarPago(cuenta);
+
+                                        // Damos las gracias por su visita
+                                        System.out.println("\n[" + camarero.getNombre() + "]: Muchas gracias por su visita. " +
+                                                        "¡Espero volver a verles pronto por el restaurante!");
+
                                         datosMesa.cambiarEstadoMesa(conex, elecMesa, "libre"); // Cambiamos el estado de la mesa despues de que el usuario pague
+
+                                        // Forzamos la salida al menú de Login para cerrar la sesión del cliente
+                                        opcionCliente = 3;
 
 
                                     }
@@ -707,6 +758,7 @@ public class AppRestaurante {
             System.out.println("Programa finalizado. ¡Adiós!");
         } catch (Exception e) {
         }
+        
         
     }
 }
